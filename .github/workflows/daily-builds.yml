@@ -1,0 +1,26 @@
+---
+name: Daily builds
+on:
+  schedule:
+    - cron: 0 7 * * *
+jobs:
+  expo-v3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build image
+        run: >
+          docker build . \
+            --build-arg NODE_VERSION=12 \
+            --build-arg EXPO_VERSION=3 \
+            --tag whitelabelco/expo-cli:3
+      - name: Test image
+        run: docker run --rm whitelabelco/expo-cli:3 diagnostics
+      - name: Authenticate docker
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u wlabel --password-stdin
+      - name: Publish image
+        run: |
+          docker tag whitelabelco/expo-cli:3 whitelabelco/expo-cli:latest
+          docker push whitelabelco/expo-cli:3
+          docker push whitelabelco/expo-cli:latest
+
