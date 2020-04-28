@@ -23,3 +23,7 @@ jobs:
         docker tag whitelabelco/expo-cli:3 whitelabelco/expo-cli:latest
         docker push whitelabelco/expo-cli:3
         docker push whitelabelco/expo-cli:latest
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2.0.0
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
