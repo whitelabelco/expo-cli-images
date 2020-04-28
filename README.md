@@ -1,5 +1,3 @@
-![CD](https://github.com/whitelabelco/expo-cli-images/workflows/CD/badge.svg)
-
 # Expo for Docker
 
 A prebuilt docker image for [Expo CLI][link-cli] on Docker-based environments.
