@@ -10,7 +10,7 @@ image                 | node  | expo  | status
 ---                   | ---   | ---   | ---
 `whitelabelco/expo-cli:3` | `12`  | `3`   | **latest**
 
-> Only version 3 is daily rebuilt.
+> Only version 3 is weekly rebuilt.
 
 ## What's inside?
 
